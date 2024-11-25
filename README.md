@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -48,3 +49,7 @@ export default tseslint.config({
   },
 })
 ```
+=======
+docker build -t react-vite-app .
+docker run -p 80:80 react-vite-app
+>>>>>>> c9b6ef7 (first commit)

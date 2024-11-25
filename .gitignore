@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
+=======
+
+dist_electron/
+>>>>>>> c9b6ef7 (first commit)
