@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { MenuIcon, UserIcon, ClipboardListIcon, SettingsIcon, LogOutIcon } from "lucide-react";
-=======
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -20,7 +15,6 @@ import {
   SettingsIcon,
   LogOutIcon,
 } from "lucide-react";
->>>>>>> c9b6ef7 (first commit)
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,14 +23,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-<<<<<<< HEAD
-
-export const Header = () => {
-  return (
-    <header className="bg-primary text-primary-foreground shadow-md">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">CONTROL DE HORAS Y ASISTENCIA LABORAL</h1>
-=======
 import { logout } from "@/store/auth/slice";
 
 export const Header = () => {
@@ -59,7 +45,6 @@ export const Header = () => {
         <h1 className="text-2xl font-bold">
           CONTROL DE HORAS Y ASISTENCIA LABORAL
         </h1>
->>>>>>> c9b6ef7 (first commit)
         <div className="flex items-center space-x-4">
           <Sheet>
             <SheetTrigger asChild>
@@ -98,17 +83,6 @@ export const Header = () => {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
               <DropdownMenuSeparator />
-<<<<<<< HEAD
-              <DropdownMenuItem>
-                <UserIcon className="mr-2 h-4 w-4" />
-                <span>Perfil</span>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <SettingsIcon className="mr-2 h-4 w-4" />
-                <span>Configuración</span>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-=======
               <DropdownMenuItem onClick={handleProfile}>
                 <UserIcon className="mr-2 h-4 w-4" />
                 <span>Perfil</span>
@@ -118,7 +92,6 @@ export const Header = () => {
                 <span>Configuración</span>
               </DropdownMenuItem>
               <DropdownMenuItem onClick={handleLogout}>
->>>>>>> c9b6ef7 (first commit)
                 <LogOutIcon className="mr-2 h-4 w-4" />
                 <span>Cerrar sesión</span>
               </DropdownMenuItem>

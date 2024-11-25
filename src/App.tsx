@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import HomeScreen from './presentation/screen/home/HomeScreen'
-
-
-function App() {
-
-
-  return (
-    <>
-      <HomeScreen />
-    </>
-  )
-}
-
-export default App
-=======
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Routes, Navigate } from "react-router-dom";
 import { PrivateRoute } from "./components/navigation/PrivateRoute";
@@ -87,4 +71,3 @@ function App() {
 }
 
 export default App;
->>>>>>> c9b6ef7 (first commit)

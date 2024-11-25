@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-"use client";
-
-import axios, { AxiosResponse } from "axios";
-
-import { useState, useEffect } from "react";
-=======
 import axios, { AxiosResponse } from "axios";
 
 import { useState } from "react";
->>>>>>> c9b6ef7 (first commit)
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -31,10 +23,7 @@ import {
 } from "@/components/ui/tooltip";
 import { fetchAdapter } from "@/config/adapters/fetch.adapter";
 import { Header } from "@/components/layout/Header";
-<<<<<<< HEAD
-=======
 import { parseISO, format } from "date-fns";
->>>>>>> c9b6ef7 (first commit)
 
 interface Employee {
   id: string;
@@ -52,16 +41,6 @@ interface EmployeeResponse {
   data: Employee[];
 }
 
-<<<<<<< HEAD
-export default function HomeScreen() {
-  const { register, watch } = useForm();
-
-  const [status, setStatus] = useState("");
-  console.log(status);
-  
-  const [isLoading, setIsLoading] = useState(false);
-  const [employeeData, setEmployeeData] = useState<Employee[]>([]);
-=======
 export const HomeScreen = () => {
   const { register, watch } = useForm();
 
@@ -69,16 +48,12 @@ export const HomeScreen = () => {
   const [employeeData, setEmployeeData] = useState<Employee[]>([]);
   const [department, setDepartment] = useState("");
 
->>>>>>> c9b6ef7 (first commit)
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [searchTerm, setSearchTerm] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
-<<<<<<< HEAD
-=======
   console.log("EmployeeData:", employeeData);
   const [status, setStatus] = useState("");
->>>>>>> c9b6ef7 (first commit)
 
   const startDate = watch("startDate");
   const endDate = watch("endDate");
@@ -88,41 +63,22 @@ export const HomeScreen = () => {
     endDate: string,
     page = 1,
     pageSize = 10,
-<<<<<<< HEAD
-    name = ""
-  ) => {
-    setIsLoading(true);
-    try {
-      const response = await fetchAdapter.post<EmployeeResponse>(
-        name
-          ? "/reports/search-attendance-by-name"
-          : "/reports/monthly-attendance-report",
-=======
     name = "",
     department = ""
   ) => {
     try {
       const response = await fetchAdapter.post<EmployeeResponse>(
         "/reports/searchAttendance",
->>>>>>> c9b6ef7 (first commit)
         {
           startDate,
           endDate,
           page,
           pageSize,
           name,
-<<<<<<< HEAD
-        }
-      );
-      const data = response;
-      setEmployeeData(data.data);
-      console.log("Empleados:", data.data);
-=======
           department,
         }
       );
       setEmployeeData(response.data);
->>>>>>> c9b6ef7 (first commit)
     } catch (error) {
       console.error("Error al obtener los empleados:", error);
     } finally {
@@ -130,49 +86,12 @@ export const HomeScreen = () => {
     }
   };
 
-<<<<<<< HEAD
-  useEffect(() => {
-    if (!startDate || !endDate) {
-      setAlertMessage(
-        "Por favor, seleccione ambas fechas para realizar la búsqueda."
-      );
-      return;
-    }
-
-    if (new Date(startDate) > new Date(endDate)) {
-      setAlertMessage(
-        "La fecha de inicio no puede ser mayor que la fecha de fin."
-      );
-      return;
-    }
-
-    setAlertMessage(""); // Clear any alert messages
-    fetchEmployees(startDate, endDate, page, pageSize, searchTerm);
-  }, [startDate, endDate, page, pageSize, searchTerm]);
-
-  const handlePageChange = (newPage = 1) => {
-    setPage(newPage);
-  };
-
-  const handlePageSizeChange = (e: React.ChangeEvent<HTMLSelectElement>) =>
-    setPageSize(Number(e.target.value));
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-    setPage(1);
-  };
-
-=======
->>>>>>> c9b6ef7 (first commit)
   const handleDownload = async (): Promise<void> => {
     if (employeeData.length === 0) return; // No permite descargar si no hay datos
 
     try {
       setIsLoading(true);
 
-<<<<<<< HEAD
-      // Realiza la solicitud directamente con Axios y espera un Blob como respuesta
-=======
       // Realiza la solicitud directamente con Axios y espera un Blob como respuesta - reports/download-excel?startDate
       console.log("Descargando archivo...");
       console.log("startDate:", startDate);
@@ -182,7 +101,6 @@ export const HomeScreen = () => {
         endDate,
       });
 
->>>>>>> c9b6ef7 (first commit)
       const response: AxiosResponse<Blob> = await axios.get(
         `/reports/download-excel`,
         {
@@ -195,11 +113,7 @@ export const HomeScreen = () => {
             Accept:
               "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
           },
-<<<<<<< HEAD
-          baseURL: "http://localhost:3000/api", // Asegúrate de definir el baseURL aquí
-=======
           baseURL: "http://localhost:3002/api", // Asegúrate de definir el baseURL aquí
->>>>>>> c9b6ef7 (first commit)
         }
       );
 
@@ -222,8 +136,6 @@ export const HomeScreen = () => {
       setIsLoading(false);
     }
   };
-<<<<<<< HEAD
-=======
 
   const handlePageChange = (newPage = 1) => {
     setPage(newPage);
@@ -240,7 +152,6 @@ export const HomeScreen = () => {
     setPage(1); // Reiniciar a la primera página
   };
 
->>>>>>> c9b6ef7 (first commit)
   return (
     <TooltipProvider>
       <div className="flex flex-col min-h-screen">
@@ -290,8 +201,6 @@ export const HomeScreen = () => {
                         />
                       </div>
                       <div className="space-y-2">
-<<<<<<< HEAD
-=======
                         <Label htmlFor="departamento">Departamento</Label>
                         <select
                           id="departamento"
@@ -305,7 +214,6 @@ export const HomeScreen = () => {
                         </select>
                       </div>
                       <div className="space-y-2">
->>>>>>> c9b6ef7 (first commit)
                         <Label htmlFor="page-size">Registros por página</Label>
                         <select
                           id="page-size"
@@ -318,8 +226,6 @@ export const HomeScreen = () => {
                           <option value={20}>20</option>
                         </select>
                       </div>
-<<<<<<< HEAD
-=======
 
                       <div>
                         <Button
@@ -338,7 +244,6 @@ export const HomeScreen = () => {
                           Filtrar
                         </Button>
                       </div>
->>>>>>> c9b6ef7 (first commit)
                     </div>
                   </CardContent>
                 </Card>
@@ -389,17 +294,10 @@ export const HomeScreen = () => {
                       </TableHeader>
                       <TableBody>
                         {employeeData?.map((employee) => (
-<<<<<<< HEAD
-                          <TableRow key={employee.id}>
-                            <TableCell>{employee.Nombre}</TableCell>
-                            <TableCell>
-                              {new Date(employee.Fecha).toLocaleDateString()}
-=======
                           <TableRow key={employee.id + employee.Fecha}>
                             <TableCell>{employee.Nombre}</TableCell>
                             <TableCell>
                               {format(parseISO(employee.Fecha), "dd/MM/yyyy")}
->>>>>>> c9b6ef7 (first commit)
                             </TableCell>
                             <TableCell>{employee.Entrada}</TableCell>
                             <TableCell>{employee.Salida}</TableCell>
@@ -443,8 +341,4 @@ export const HomeScreen = () => {
       </div>
     </TooltipProvider>
   );
-<<<<<<< HEAD
-}
-=======
 };
->>>>>>> c9b6ef7 (first commit)
